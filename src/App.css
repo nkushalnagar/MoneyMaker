@@ -1,38 +1,75 @@
-.App {
+/* Main title */
+.container h1 {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Input container for each label and input */
+.input-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 15px;
 }
 
-.App-link {
-  color: #61dafb;
+/* Label styling */
+.input-container label {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 5px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Input field styling */
+.input-container input[type="text"] {
+  padding: 10px;
+  width: 100%;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+.input-container input[type="text"]:focus {
+  border-color: #4a90e2;
+  outline: none;
+}
+
+/* Search button styling */
+button {
+  background-color: #4a90e2;
+  color: #fff;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #357ab8;
+}
+
+/* Trend results styling */
+.trend-results {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.trend-results h1 {
+  font-size: 20px;
+  color: #333;
+  margin: 10px 0;
+}
+
+/* Popularity result */
+.trend-results h1.popularity {
+  font-weight: bold;
+  color: #4a90e2;
 }
