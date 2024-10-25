@@ -1,4 +1,6 @@
+import './App.css';
 import { useState } from 'react'
+
 const API_KEY = process.env.REACT_APP_SEARCH_API_KEY
 const API_URL = 'https://www.searchapi.io/api/v1/search?api_key=' + API_KEY + '&data_type=TIMESERIES&time=now 7-d&engine=google_trends&geo=US&q='
 
@@ -35,7 +37,7 @@ function App() {
 
   return (
     <div class="container">
-      <h1>Enter two topics you would like to compare</h1>
+      <h1>Enter two topics you would like to compare popularity for the last week in the US</h1>
     
       <div class="input-container">
           <label for="topic1">Enter first topic:</label>
@@ -61,13 +63,13 @@ function App() {
             />
       </div>
       <button onClick={handleSearch}> View Trends</button>
-      <TrendGrid trends={trends}/>
+      <TrendGrid trends={trends} searchTerm={searchTerm} searchTerm1={searchTerm1}/>
     </div>
   )
 }
 //searchTerm = {searchTerm} searchTerm1 = {searchTerm1}
 //,{searchTerm},{searchTerm1}
-function TrendGrid( {trends} ) {
+function TrendGrid( {trends, searchTerm,searchTerm1}) {
   console.log('trends',trends)
   var trend_1 = 0
   var trend_2 = 0
@@ -86,28 +88,26 @@ function TrendGrid( {trends} ) {
   } finally {
     console.log("")
   }
-  /*if ({searchTerm} == 'undefined') {
+  /*if (searchTerm == 'undefined') {
     searchTerm = "couldn't find value"
   };
-  if ({searchTerm1} == 'undefined') {
+  if (searchTerm1 == 'undefined') {
     searchTerm1 = "couldn't find value"
-  }
+  }*/
   var popularity = ""
   if (trend_1 > trend_2) {
-    popularity = "" + searchTerm + "is more popular than" + searchTerm1
+    popularity = "" + searchTerm + " is more popular!"
   } else {
-    popularity = "" + searchTerm1 + "is more popular than" + searchTerm
+    popularity = "" + searchTerm1 + " is more popular!"
   }
-*/
+
   return(
 
-    <div>
-        
-        <h1> {trend_1} on a scale from 1-100 </h1>
-        <h1> {trend_2} on a scale from 1-100 </h1>
-
-    </div>
-    
+      <div className="trend-results">
+        <h1>{trend_1} on a scale from 1-100</h1>
+        <h1>{trend_2} on a scale from 1-100</h1>
+        <h1 className="popularity">{popularity}</h1>
+      </div>
 
   )
 
